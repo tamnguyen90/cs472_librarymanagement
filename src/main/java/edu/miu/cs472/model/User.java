@@ -8,28 +8,20 @@ public class User implements Serializable{
 	public static final String STORAGE_TYPE = "USER";
 	
 	
-	private String userName;
+	private String username;
 	private String password;
-	private Role role;
 	
-	public User(String userName, String password) {
-		this.userName = userName;
+	public User(String username, String password) {
+		this.username = username;
 		this.password = password;
 	}
-	
-	public User(String userName, String password, Role role) {
-		super();
-		this.userName = userName;
-		this.password = password;
-		this.role = role;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -39,13 +31,5 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}	
 
 }
