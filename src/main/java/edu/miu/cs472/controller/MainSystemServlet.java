@@ -17,20 +17,31 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
-@WebServlet(name = "MainSystemServlet", urlPatterns = "/main")
+@WebServlet(name = "MainSystemServlet", urlPatterns = {"/main", "/libraryMember"})
 public class MainSystemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Map<Integer, List<CheckoutRecordEntry>> checkoutRecordMap = CheckoutRecordData.getCurrentCheckoutRecords();
+        String servletPath = request.getServletPath();
         Collection<Book> bookCollection = BookData.getCurrentBookList();
         request.setAttribute("libBooks", bookCollection);
+        request.setAttribute("checkoutRecordMap", checkoutRecordMap);
         Collection<LibraryMember> libraryMembers = LibraryMemberData.getCurrentMembers();
         request.setAttribute("libMembers", libraryMembers);
-        Map<Integer, List<CheckoutRecordEntry>> checkoutRecordMap = CheckoutRecordData.getCurrentCheckoutRecords();
-        request.setAttribute("checkoutRecordMap", checkoutRecordMap);
+
+        //handler when user clicking on each member
+        if ("/libraryMember".equals(servletPath)) {
+            String memberId = request.getParameter("memberId");
+            request.setAttribute("recordsDetail", checkoutRecordMap.get(Integer.parseInt(memberId)));
+            LibraryMember member = LibraryMemberData.getLibraryMemberById(Integer.parseInt(memberId));
+            request.setAttribute("libMember", member);
+        }
+
         RequestDispatcher view = request.getRequestDispatcher("main.jsp");
         view.forward(request, response);
     }

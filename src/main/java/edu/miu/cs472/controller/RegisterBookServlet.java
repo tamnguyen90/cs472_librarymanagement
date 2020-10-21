@@ -25,20 +25,16 @@ public class RegisterBookServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Collection<Book> booklist = BookData.getCurrentBookList();
-        String isbn;
-        String title;
-        String author;
-        isbn = req.getParameter("isbn");
-        title = req.getParameter("title");
-        author = req.getParameter("author");
-        Book newBook = new Book(isbn, title);
-        BookData.addNewBook(new Book(isbn,title));
+        String isbn = req.getParameter("isbn");;
+        String title = req.getParameter("title");;
+        String authors = req.getParameter("authors");;
 
-        String json = null;
-        json = new Gson().toJson(booklist);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(json);
+        Book newBook = new Book(isbn, title);
+        newBook.addAuthor(authors);
+        boolean success = BookData.addNewBook(new Book(isbn,title));
+        req.setAttribute("success", success);
+
+        req.getRequestDispatcher("registerBook.jsp").forward(req, resp);
     }
 
     @Override
@@ -47,7 +43,7 @@ public class RegisterBookServlet extends HttpServlet {
         if (req.getAttribute("booklist") == null) {
             req.setAttribute("booklist", BookData.getCurrentBookList());
         }
-        resp.sendRedirect("registerBook.jsp");
+        req.getRequestDispatcher("registerBook.jsp").forward(req, resp);
     }
 }
 

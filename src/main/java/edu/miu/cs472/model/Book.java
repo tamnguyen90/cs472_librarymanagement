@@ -66,8 +66,22 @@ public class Book implements Serializable{
 		this.authors = authors;
 	}
 
-	public void addAuthor(Author author) {
-		this.authors.add(author);
+	public void addAuthor(String authStr) {
+		if (authStr == null || authStr.isEmpty()) {
+			return;
+		}
+		String[] auths = authStr.split(",");
+		for (String auth : auths) {
+			String[] temp = auth.split(" ");
+			String firstName = temp[0];
+			String lastName = "";
+			if (temp.length > 1) {
+				for(int i = 1; i < temp.length; i ++) {
+					lastName += temp[i];
+				}
+			}
+			authors.add(new Author(firstName, lastName));
+		}
 	}
 
 	public int getMaxCheckout() {

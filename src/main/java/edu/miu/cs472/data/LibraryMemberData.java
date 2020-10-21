@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryMemberData {
-    private static int memberId = 1;
     private static List<LibraryMember> libraryMemberList = new ArrayList<LibraryMember>() {{
         Address add1 = new Address("1302 S Main st", "Fairfield", "Iowa", "52556");
         add(new LibraryMember("Huu Tam", "Nguyen", new Address("1302 S Main st", "Fairfield", "Iowa", "52556"), "6418191234"));
@@ -31,5 +30,9 @@ public class LibraryMemberData {
             return false;
         }
         return libraryMemberList.add(newMember);
+    }
+
+    public static LibraryMember getLibraryMemberById(int id) {
+        return libraryMemberList.stream().filter(x -> x.getMemberId() == id).findFirst().get();
     }
 }

@@ -22,63 +22,39 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<div class="header">
-    Library Management System
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2 left-panel">
-            <div class="left-component">
-            <div class="searchBox">
-                <input type="text" id="search" placeholder="Search..." oninput="filterContent(this)"/>
+    <jsp:include page="header.jsp" />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2 left-panel">
+                <div class="searchBox">
+                    <input type="text" class="bd-search d-flex align-items-center" id="searchBox" placeholder="Search..."/>
+                </div>
+                <div class="member">
+                    <ul id="memLst">
+                        <h5>Library members</h5>
+                        <c:forEach var="mem" items="${libMembers}">
+                            <li>
+                                <a href="libraryMember?memberId=${mem.memberId}">${mem.fullName}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
             </div>
-            <div class="member">
-                <ul>
-                    <c:forEach var="mem" items="${libMembers}">
-                        <li>
-                            <a href="#">${mem.fullName}</a>
-                        </li>
-                    </c:forEach>
-                </ul>
-            </div>
-            </div>
-            <div>
-                <button id="addLibraryMemberBtn">Add Library Member</button>
-            </div>
-        </div>
-        <div class="col-sm-10 right-panel">
-            <div class="right-component">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>ISBN</th>
-                    <th>Title</th>
-                    <th>Copy</th>
-                    <th>Author</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="book" items="${booklist}">
-                    <tr>
-                        <td>${book.isbn}</td>
-                        <td>${book.title}</td>
-                        <td>${book.copies}</td>
-                        <td>${book.authorStr}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            </div>
-            <div class="addBookBtn">
-                <button id="addBookBtn">Add Book</button>
+            <div class="col-sm-10 right-panel">
+                <c:set var="path" value="${requestScope['javax.servlet.forward.servlet_path']}" />
+                <c:choose>
+                    <c:when test="${'/main' eq path}">
+                        <jsp:include page="main-panel.jsp" />
+                    </c:when>
+
+                    <c:when test="${'/libraryMember' eq path}">
+                        <jsp:include page="memberDetail.jsp" />
+                    </c:when>
+                </c:choose>
+
             </div>
         </div>
     </div>
-</div>
-<footer>
-    <h6>
-        © 2020 Maharishi International University. All Rights Reserved.
-    </h6>
-</footer>
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

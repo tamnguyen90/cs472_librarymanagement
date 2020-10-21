@@ -9,7 +9,6 @@ public class CheckoutRecordEntry implements Serializable{
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
 	private Book book;
-
 	private LibraryMember owner;
 	
 	public CheckoutRecordEntry(LocalDate checkoutDate, LocalDate dueDate, Book book) {
