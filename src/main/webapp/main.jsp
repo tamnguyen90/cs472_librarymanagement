@@ -18,22 +18,54 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" >
 </head>
 <body>
-    <div class="container">
-        <div class="row header">
-            <h1>The Library Management System</h1>
-        </div>
-        <div class="row main">
-            <div class="col-sm-3 menu">
-                Menu
-            </div>
-            <div class="col-sm-9 content">
-                Content
-            </div>
-        </div>
-        <div class="row footer">
-            Footer
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="header-img">
+            <h1>LIBRARY MANAGEMENT SYSTEM</h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-2 left-panel">
+            <div class="searchBox">
+                <input type="text" id="search" placeholder="Search..." oninput="filterContent(this)"/>
+            </div>
+            <div class="member">
+                <ul>
+                    <c:forEach var="mem" items="${libMembers}">
+                        <li>
+                            <a href="#">${mem.fullName}</a>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-10 right-panel">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Copy</th>
+                    <th>Author</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="book" items="${booklist}">
+                    <tr>
+                        <td>${book.isbn}</td>
+                        <td>${book.title}</td>
+                        <td>${book.copies}</td>
+                        <td>${book.authorStr}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="page-footer">
+        Footer
+    </div>
+</div>
 
 </body>
 </html>

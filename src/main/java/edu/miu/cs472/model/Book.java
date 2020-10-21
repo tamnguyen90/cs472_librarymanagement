@@ -49,6 +49,10 @@ public class Book implements Serializable{
 		return authors;
 	}
 
+	public String getAuthorStr() {
+		return authors.stream().map(ath -> ath.getFullName()).collect(Collectors.joining(", ")).toString();
+	}
+
 
 	public void setAuthors(List<Author> authors) {
 		if (authors == null || authors.isEmpty()) {

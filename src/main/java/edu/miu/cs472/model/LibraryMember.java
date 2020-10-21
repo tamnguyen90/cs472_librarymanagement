@@ -5,21 +5,22 @@ public class LibraryMember extends Person {
 	private static final long serialVersionUID = -7206984963573838605L;
 	public static final String STORAGE_TYPE = "LIBRARY_MEMBER";
 	
-	
-	private long memberId;
+	private static int starter = 0;
+	private int memberId;
 	private CheckoutRecord checkoutRecord;
 	
 	public LibraryMember() {}
 	
 	public LibraryMember(String firstName, String lastName, Address address, String phone) {
 		super(firstName, lastName, address, phone);
+		this.memberId = ++starter;
 	}
 
-	public long getMemberId() {
+	public int getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(long memberId) {
+	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
 

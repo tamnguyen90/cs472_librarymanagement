@@ -55,7 +55,7 @@ public class CheckoutRecord implements Serializable {
 	public String getlastName() {
 		return owner.getLastName();
 	}
-	public long getmemberId() {
+	public int getMemberId() {
 		return owner.getMemberId();
 	}
 	
