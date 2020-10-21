@@ -1,15 +1,90 @@
-.header {
-    background-image: url("../images/header.jpg");
+body {
+    background-color:#005A41;
+}
+.container-fluid{
+    height: 600px;
+    background-color: white;
+    margin: 10px auto auto auto;
+    /*padding-left: 10px;*/
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+.left-component{
+    height: 500px;
+}
+.right-component{
+    height: 500px;
+}
+.header{
+    background-color: white;
+    height: 50px;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+}
+footer{
+    color: white;
+    background-color:#005A41;
+    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 10px;
 }
 
-.menu {
-    background-color: burlywood;
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+    touch-action: manipulation;
+    transition: all 0.5s;
+    padding: 0 10px;
+    min-width: 120px;
+    margin: 0 0 0 0 !important;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-right: 1rem !important;
+    margin-top: 1.8rem !important;
+    box-shadow: 0 3px 3px 0 transparent;
+    font-weight: 700;
+    min-height: 45px;
+    border: 2px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    font-size: 1.2rem;
+    border-radius: 4.5px;
+    min-height: 45px;
+    background: #BBCC00;
+    color: #005A41;
+    box-shadow: 6.356px 12.474px 16.38px 1.62px rgba(0,0,0,0.36);
+    border: #BBCC00;
+}
+.addBookBtn{
+    text-align: right;
 }
 
-.content {
-    background-color: brown;
-}
+/*.header {*/
+/*    background-image: url("../images/header.jpg");*/
+/*}*/
+/*.menu {*/
+/*    background-color: burlywood;*/
+/*}*/
 
-.footer {
-    background-color: blue;
-}
+/*.content {*/
+/*    background-color: brown;*/
+/*}*/
+
+/*.footer {*/
+/*    background-color: blue;*/
+/*}*/
+
