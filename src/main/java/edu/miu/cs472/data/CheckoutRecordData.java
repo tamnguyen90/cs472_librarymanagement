@@ -24,4 +24,8 @@ public class CheckoutRecordData {
         checkoutRecordMap.put(newRecord.getOwner().getMemberId(), currentMemberRecords);
         return true;
     }
+
+    public static void updateMemberCheckoutRecords(int memberId, List<CheckoutRecordEntry> checkoutRecordEntries) {
+        checkoutRecordMap.put(memberId, checkoutRecordEntries);
+    }
 }
