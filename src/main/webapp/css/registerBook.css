@@ -1,0 +1,123 @@
+body {
+    background-color: #005A41;
+}
+
+header {
+    background-color: white;
+    height: 50px;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 3.4rem;
+    font-weight: 300;
+}
+
+#main_content {
+    height: 400px;
+    width: 800px;
+    background-color: white;
+    margin: auto;
+    padding-left: 10px;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+h5 {
+    cursor: default;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: none;
+    background: transparent;
+    line-height: 1.2;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    font-weight: 400;
+    height: 55px;
+    text-align: left;
+
+}
+
+
+label {
+
+    padding-left: 150px;
+    padding-right: 20px;
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: left;
+
+}
+
+input {
+    margin-left: 20px;
+    font-size: 2rem;
+    font-weight: 200;
+    width: 230px;
+}
+
+footer {
+    color: white;
+    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+#button {
+
+    width: 800px;
+    text-align: center;
+
+}
+
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+    touch-action: manipulation;
+    transition: all 0.5s;
+    padding: 0 30px;
+    min-width: 120px;
+    margin: 0 0 0 0 !important;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-right: 1rem !important;
+    margin-top: 1.8rem !important;
+    box-shadow: 0 3px 3px 0 transparent;
+    font-weight: 700;
+    min-height: 45px;
+    border: 2px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    font-size: 2rem;
+    border-radius: 4.5px;
+    min-height: 45px;
+    color: #005A41;
+    box-shadow: 6.356px 12.474px 16.38px 1.62px rgba(0, 0, 0, 0.36);
+
+}
+
+#cancelBtn {
+    background-color: #E7E7E8;
+    border: #E7E7E8;
+}
+
+#addBookBtn {
+    background: #BBCC00;
+    border: #BBCC00;
+}

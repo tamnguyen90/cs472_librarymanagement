@@ -15,98 +15,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#addLibraryMemberBtn').click(addLibraryMember);
-        });
+    <%--    <script>--%>
+    <%--        $(document).ready(function () {--%>
+    <%--            $('#addLibraryMemberBtn').click(addLibraryMember);--%>
+    <%--        });--%>
 
-        function addLibraryMember(event) {
-            event.preventDefault();
-            $.post('registerlibrarymember',{
-                "firstName": $("input[name='firstName']").val(),
-                "lastName": $("input[name='lastName']").val(),
-                "street": $("input[name='street']").val(),
-                "city": $("input[name='city']").val(),
-                "state": $("#state option:selected").text(),
-                "zip": $("input[name='zip']").val(),
-                "phone": $("input[name='phone']").val(),
-            }).done(returnData);
-        }
+    <%--        function addLibraryMember(event) {--%>
+    <%--            event.preventDefault();--%>
+    <%--            $.post('registerlibrarymember',{--%>
+    <%--                "firstName": $("input[name='firstName']").val(),--%>
+    <%--                "lastName": $("input[name='lastName']").val(),--%>
+    <%--                "street": $("input[name='street']").val(),--%>
+    <%--                "city": $("input[name='city']").val(),--%>
+    <%--                "state": $("#state option:selected").text(),--%>
+    <%--                "zip": $("input[name='zip']").val(),--%>
+    <%--                "phone": $("input[name='phone']").val(),--%>
+    <%--            }).done(returnData);--%>
+    <%--        }--%>
 
-        function returnData(responseJson) {
-            var list = $('#list');
-            list.find('tr').remove();
-            $.each(responseJson, function (index, value) {
-                console.log(value);
-                var strAdd = value.address.street + ',' + value.address.city + ',' + value.address.state + ',' + value.address.zip;
-                console.log(strAdd);
+    <%--        function returnData(responseJson) {--%>
+    <%--            var list = $('#list');--%>
+    <%--            list.find('tr').remove();--%>
+    <%--            $.each(responseJson, function (index, value) {--%>
+    <%--                console.log(value);--%>
+    <%--                var strAdd = value.address.street + ',' + value.address.city + ',' + value.address.state + ',' + value.address.zip;--%>
+    <%--                console.log(strAdd);--%>
 
-                $("#returndata").append("<tr><td>" + value.firstName + "</td><td>" + value.lastName + "</td><td>" + strAdd + "</td><td>" + value.phone + "</td></tr>");
-            });
-        }
+    <%--                $("#returndata").append("<tr><td>" + value.firstName + "</td><td>" + value.lastName + "</td><td>" + strAdd + "</td><td>" + value.phone + "</td></tr>");--%>
+    <%--            });--%>
+    <%--        }--%>
 
 
-    </script>
+    <%--    </script>--%>
+    <link rel="stylesheet" type="text/css" href="css/registerLibraryMember.css">
 </head>
 <body>
-<h2>List of Library Member in system</h2>
-<table class="table table-striped" id="returndata">
-    <thead>
-    <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Address</th>
-        <th>Phone</th>
-    </tr>
-    </thead>
-    <tbody id="list">
-    <c:forEach var="libraryMember" items="${librarymemberlist}">
-        <tr>
-            <td>${libraryMember.firstName}</td>
-            <td>${libraryMember.lastName}</td>
-            <td>${libraryMember.address}</td>
-            <td>${libraryMember.phone}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-<h2>Add new library member below: </h2>
-<form action="registerlibrarymember" method="post">
-    <table>
-        <tr>
-            <td>First Name</td>
-            <td><input type="text" name="firstName"/></td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td><input type="text" name="lastName"/></td>
-        </tr>
-    <tr>
-        <td>Address</td>
-        <td><input type="text" name="street"/></td>
-    </tr>
-    <tr>
-        <td>City</td>
-        <td><input type="text" name="city"/></td>
-    </tr>
-    <tr>
-        <td>State</td>
-        <td><select name="state" id = "state">
-            <option value="Iowa" selected>Iowa</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Maryland">Maryland</option>
-        </select></td>
-    </tr>
-    <tr>
-        <td>Zip</td>
-        <td><input type="number" name="zip"/></td>
-    </tr>
-    <tr>
-        <td>Phone</td>
-        <td><input type="number" name="phone"/></td>
-    </tr>
-    </table>
+<%--<h2>List of Library Member in system</h2>--%>
+<%--<table class="table table-striped" id="returndata">--%>
+<%--    <thead>--%>
+<%--    <tr>--%>
+<%--        <th>First Name</th>--%>
+<%--        <th>Last Name</th>--%>
+<%--        <th>Address</th>--%>
+<%--        <th>Phone</th>--%>
+<%--    </tr>--%>
+<%--    </thead>--%>
+<%--    <tbody id="list">--%>
+<%--    <c:forEach var="libraryMember" items="${librarymemberlist}">--%>
+<%--        <tr>--%>
+<%--            <td>${libraryMember.firstName}</td>--%>
+<%--            <td>${libraryMember.lastName}</td>--%>
+<%--            <td>${libraryMember.address}</td>--%>
+<%--            <td>${libraryMember.phone}</td>--%>
+<%--        </tr>--%>
+<%--    </c:forEach>--%>
+<%--    </tbody>--%>
+<%--</table>--%>
+
+<header>
+    <div>Library Management System</div>
+</header>
+
+<div id="main_content">
+    <h5>Add new member: </h5>
+    <form action="registerlibrarymember" method="post">
+        <table>
+            <tr><td><label>First Name</label></td>
+                <td><input type="text" name="firstName"/></td></tr>
+            <tr><td><label>Last Name</label></td>
+            <td><input type="text" name="lastName"/><td></tr>
+            <tr><td><label class="address">Address:</label></td><td></td></tr>
+
+            <tr><td><label>Street</label></td>
+            <td><input type="text" name="street"/></td></tr>
+
+            <tr><td><label>City</label></td>
+            <td><input type="text" name="city"/></td></tr>
+
+            <tr><td><label>State</label></td>
+                <td>
+                <select name="state" id="state">
+                    <option value="Iowa" selected>Iowa</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Maryland">Maryland</option>
+                </select></td></tr>
+
+            <tr><td><label>Zip</label></td>
+                <td> <input type="text" name="zip"/></td></tr>
+
+            <tr><td><label class="phone">Phone</label></td>
+                <td> <input type="text" name="phone"/></td></tr>
+        </table>
+        <div id="button">
+            <button id="cancelBtn">Cancel</button>
         <button id="addLibraryMemberBtn">Submit</button>
-</form>
+        </div>
+    </form>
+
+</div>
+<footer>
+    <h6>
+        © 2020 Maharishi International University. All Rights Reserved.
+    </h6>
+</footer>
 </body>
 </html>
