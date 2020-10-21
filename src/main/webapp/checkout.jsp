@@ -11,16 +11,19 @@
 <head>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/checkout.js"></script>
+<%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>--%>
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
 </head>
 <body>
-
-<h2>Check out Books</h2>
+<header>
+    <div>Library Management System</div>
+</header>
+<div id="main_content">
+<h5>Check out Books</h5>
 <div id="errorMessage" class="ui-state-error"></div>
 <form action="CheckoutServlet" method="post" id="frmCheckout">
     <label for="memberId">Member ID:</label> <input type="text" id="memberId" name="memberId" value="John"><br>
     <label for="isbn">ISBN:</label> <input type="text" id="isbn" name="isbn" value="Doe"><br><br>
-    <input type="button" id="btnSubmit" value="Submit">
-</form>
 
 <table>
     <thead>
@@ -50,5 +53,15 @@
     <tbody id="tbodyBook">
     </tbody>
 </table>
+
+
+</form>
+    <div class="button"> <input type="button" id="btnSubmit" value="Check Out"></div>
+</div>
+<footer>
+    <h6>
+        © 2020 Maharishi International University. All Rights Reserved.
+    </h6>
+</footer>
 </body>
 </html>
