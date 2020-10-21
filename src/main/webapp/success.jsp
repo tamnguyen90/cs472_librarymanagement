@@ -14,7 +14,13 @@
     <script type="text/javascript" src="js/checkout.js"></script>
 </head>
 <body>
+<header>
+    <div>Library Management System</div>
+</header>
+
 <div id="main_content">
+    <div align="center"><h5></h5></div>
+
     <form id="successMessage" action="main">Updating Successfully!</form>
     <div class="button"> <input type="button" id="btnGotoHome" value="Return Home Page"> </div>
 </div>
