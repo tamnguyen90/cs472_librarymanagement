@@ -28,6 +28,12 @@ public class Book implements Serializable{
 		this.authors = authors;
 	}
 
+	public Book(String isbn, String title, List<Author> authors, int maxCheckout) {
+		this(isbn, title, authors);
+		this.maxCheckout = maxCheckout;
+	}
+
+
 	public String getIsbn() {
 		return isbn;
 	}
@@ -72,8 +78,8 @@ public class Book implements Serializable{
 		this.maxCheckout = maxCheckout;
 	}
 
-	public void setIsCheckout(boolean isCheckout) {
-		this.isCheckout = this.isCheckout;
+	public void setCheckout(boolean checkout) {
+		isCheckout = checkout;
 	}
 
 	public boolean isCheckout() {
