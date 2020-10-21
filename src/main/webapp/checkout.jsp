@@ -19,43 +19,53 @@
     <div>Library Management System</div>
 </header>
 <div id="main_content">
-<h5>Check out Books</h5>
-<div id="errorMessage" class="ui-state-error"></div>
-<form action="CheckoutServlet" method="post" id="frmCheckout">
-    <label for="memberId">Member ID:</label> <input type="text" id="memberId" name="memberId" value="John"><br>
-    <label for="isbn">ISBN:</label> <input type="text" id="isbn" name="isbn" value="Doe"><br><br>
+    <div align="center"><h5>Check out Book</h5></div>
 
-<table>
-    <thead>
-    <tr>
-        <th></th>
-        <th>Member ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Phone</th>
-    </tr>
-    </thead>
-    <tbody id="tbodyMember">
-    </tbody>
-</table>
+    <form action="CheckoutServlet" method="post" id="frmCheckout">
+        <table>
+            <tr>
+                <td><label for="memberId">Member ID:</label></td>
+                <td><input type="text" id="memberId" name="memberId" placeholder="Fill out memberId" required></td>
+            </tr>
+            <tr>
+                <td><label for="isbn">ISBN:</label></td>
+                <td><input type="text" id="isbn" name="isbn" placeholder="Fill out isbn" required></td>
+            </tr>
+        </table>
+        <br><br>
+    </form>
 
-<p></p>
-<div id="book"></div>
-<table>
-    <thead>
-    <tr>
-        <th></th>
-        <th>ISBN</th>
-        <th>Title</th>
-        <th># Of Copies</th>
-    </tr>
-    </thead>
-    <tbody id="tbodyBook">
-    </tbody>
-</table>
+    <div id="errorMessage" class="ui-state-error"></div>
 
+    <form id="tblList">
+        <table name="checkoutBook">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Member ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+            </tr>
+            </thead>
+            <tbody id="tbodyMember">
+            </tbody>
+        </table>
 
-</form>
+        <p></p>
+        <div id="book"></div>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>ISBN</th>
+                <th>Title</th>
+            </tr>
+            </thead>
+            <tbody id="tbodyBook">
+            </tbody>
+        </table>
+    </form>
     <div class="button"> <input type="button" id="btnSubmit" value="Check Out"></div>
 </div>
 <footer>

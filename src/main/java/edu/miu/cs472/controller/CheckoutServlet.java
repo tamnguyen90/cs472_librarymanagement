@@ -46,7 +46,7 @@ public class CheckoutServlet extends HttpServlet {
             //process checkout the book for memberId.
             checkOut(book.get(), member.get());
 
-            resp.sendRedirect("successCheckout.jsp");
+            resp.sendRedirect("success.jsp");
         } else {
             //already borrowed the book, can not check it out.
             resp.sendRedirect("errorCheckout.jsp");

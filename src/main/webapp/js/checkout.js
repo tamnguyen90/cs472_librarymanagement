@@ -18,7 +18,7 @@ $(document).ready(function() {
             return;
         }
 
-        alert(selMemberId + ' ' + selIsbn);
+        // alert(selMemberId + ' ' + selIsbn);
         $('#memberId').val(selMemberId);
         $('#isbn').val(selIsbn);
         $('#frmCheckout').submit();
@@ -43,7 +43,7 @@ $(document).ready(function() {
             return;
         }
 
-        alert(selMemberId + ' ' + selIsbn);
+        // alert(selMemberId + ' ' + selIsbn);
         $('#returnMemberId').val(selMemberId);
         $('#returnIsbn').val(selIsbn);
         $('#frmReturnBook').submit();
@@ -85,9 +85,15 @@ $(document).ready(function() {
         var $selMemberId = $('input[name=\"selMemberId\"]:checked').val();
 
         $.post('ReturnBookServlet', {
+            memberId: $selMemberId,
             isbn: isbn
         })
             .done(dispBook)
+    });
+
+    //go to Home Page in sccuessfull page
+    $('#btnGotoHome').click(function(event) {
+        $('#successMessage').submit();
     });
 });
 
@@ -120,16 +126,6 @@ function dispLibraryMember(resJson) {
 };
 
 function dispBook(resJson) {
-    // var $book = $('#book');
-    //
-    // $book.text("");
-    //
-    // var books = "";
-    // $.each(resJson, function(key, value) {
-    //     books += "isbn: " + value.isbn + " title" + value.title;
-    // })
-    //
-    // $book.text(books);
 
     var markup = "";
     // $("table tbody tr").remove();
@@ -138,7 +134,6 @@ function dispBook(resJson) {
         markup += "<tr><td><input type='radio' name='selIsbn' value='" + value.isbn + "\'></td>>" +
             "</td><td>" + value.isbn +
             "</td><td>" + value.title +
-            "</td><td>" + 0 +
             "</td></tr>";
     })
 

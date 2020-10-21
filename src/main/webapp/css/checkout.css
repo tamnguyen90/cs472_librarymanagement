@@ -29,6 +29,15 @@ footer{
 form{
     height: 420px;
 }
+
+#frmReturnBook, #frmCheckout {
+    height: 50px;
+}
+
+#tblList {
+    height: 360px;
+}
+
 .button{
     text-align: right;
 }
@@ -52,7 +61,7 @@ h5{
     text-align: left;
 }
 
-#btnSubmit {
+#btnSubmit, #btnReturn, #btnGotoHome {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -88,4 +97,16 @@ h5{
     color: #005A41;
     box-shadow: 6.356px 12.474px 16.38px 1.62px rgba(0,0,0,0.36);
     border: #BBCC00;
+}
+
+#errorMessage {
+    font-size: 1rem;
+    color: red;
+    text-align: center;
+}
+
+#successMessage {
+    height: 350px;
+    text-align: center;
+    padding-top: 100px;
 }
