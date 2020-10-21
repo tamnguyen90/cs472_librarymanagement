@@ -8,9 +8,9 @@ public class CheckoutRecordEntry implements Serializable{
 	private static final long serialVersionUID = 6238095847861745959L;
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
-	private BookCopy book;
+	private Book book;
 	
-	public CheckoutRecordEntry(LocalDate checkoutDate, LocalDate dueDate, BookCopy book) {
+	public CheckoutRecordEntry(LocalDate checkoutDate, LocalDate dueDate, Book book) {
 		super();
 		this.checkoutDate = checkoutDate;
 		this.dueDate = dueDate;
@@ -33,11 +33,11 @@ public class CheckoutRecordEntry implements Serializable{
 		this.dueDate = dueDate;
 	}
 
-	public BookCopy getBook() {
+	public Book getBook() {
 		return book;
 	}
 
-	public void setBook(BookCopy book) {
+	public void setBook(Book book) {
 		this.book = book;
 	}
 	

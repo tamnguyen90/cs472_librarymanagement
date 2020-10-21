@@ -14,12 +14,6 @@ public class LibraryMember extends Person {
 	public LibraryMember(String firstName, String lastName, Address address, String phone) {
 		super(firstName, lastName, address, phone);
 	}
-	
-	public LibraryMember(long memberId, String firstName, String lastName, Address address, String phone, CheckoutRecord checkoutRecord) {
-		super(firstName, lastName, address, phone);
-		this.memberId = memberId;
-		this.checkoutRecord = checkoutRecord;
-	}
 
 	public long getMemberId() {
 		return memberId;

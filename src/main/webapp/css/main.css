@@ -1,0 +1,15 @@
+.header {
+    background-image: url("../images/header.jpg");
+}
+
+.menu {
+    background-color: burlywood;
+}
+
+.content {
+    background-color: brown;
+}
+
+.footer {
+    background-color: blue;
+}

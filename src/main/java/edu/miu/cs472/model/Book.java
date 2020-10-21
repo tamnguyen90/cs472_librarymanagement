@@ -13,17 +13,19 @@ public class Book implements Serializable{
 	
 	private String isbn;
 	private String title;
-	private List<BookCopy> copies = new ArrayList<BookCopy>();
-	private String authors;
+	private List<Author> authors = new ArrayList<>();
 	private int maxCheckout;
 	
 	public Book() {}
 	
-	public Book(String isbn, String title, List<BookCopy> copies, String authors) {
+	public Book(String isbn, String title) {
 		super();
 		this.isbn = isbn;
 		this.title = title;
-		this.copies = copies;
+	}
+
+	public Book(String isbn, String title, List<Author> authors) {
+		this(isbn, title);
 		this.authors = authors;
 	}
 
@@ -43,35 +45,21 @@ public class Book implements Serializable{
 		this.title = title;
 	}
 
-	public List<BookCopy> getCopies() {
-		return copies;
-	}
-
-	public void setCopies(List<BookCopy> copies) {
-		if (copies == null || copies.isEmpty()) {
-			return;
-		}
-		this.copies = copies;
-	}
-	
-	public void addBookCopy(BookCopy copy) {
-		if (copy != null) {
-			this.copies.add(copy);
-		}
-	}
-
-	public String getAuthors() {
+	public List<Author> getAuthors() {
 		return authors;
 	}
 
 
-	public void setAuthors(String authors) {
+	public void setAuthors(List<Author> authors) {
 		if (authors == null || authors.isEmpty()) {
 			return;
 		}
 		this.authors = authors;
 	}
 
+	public void addAuthor(Author author) {
+		this.authors.add(author);
+	}
 
 	public int getMaxCheckout() {
 		return maxCheckout;
