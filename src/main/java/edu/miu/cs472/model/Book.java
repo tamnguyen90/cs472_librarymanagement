@@ -8,13 +8,12 @@ import java.util.stream.Collectors;
 public class Book implements Serializable{
 
 	private static final long serialVersionUID = -284993669099407157L;
-	public static final String STORAGE_TYPE = "BOOK";
-	
-	
+
 	private String isbn;
 	private String title;
 	private List<Author> authors = new ArrayList<>();
 	private int maxCheckout;
+	private boolean isCheckout = false;
 	
 	public Book() {}
 	
@@ -71,5 +70,13 @@ public class Book implements Serializable{
 
 	public void setMaxCheckout(int maxCheckout) {
 		this.maxCheckout = maxCheckout;
+	}
+
+	public void setIsCheckout(boolean isCheckout) {
+		this.isCheckout = this.isCheckout;
+	}
+
+	public boolean isCheckout() {
+		return isCheckout;
 	}
 }

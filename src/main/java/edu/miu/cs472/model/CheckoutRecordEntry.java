@@ -9,6 +9,8 @@ public class CheckoutRecordEntry implements Serializable{
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
 	private Book book;
+
+	private LibraryMember owner;
 	
 	public CheckoutRecordEntry(LocalDate checkoutDate, LocalDate dueDate, Book book) {
 		super();
@@ -39,6 +41,14 @@ public class CheckoutRecordEntry implements Serializable{
 
 	public void setBook(Book book) {
 		this.book = book;
+	}
+
+	public LibraryMember getOwner() {
+		return owner;
+	}
+
+	public void setOwner(LibraryMember owner) {
+		this.owner = owner;
 	}
 	
 	
