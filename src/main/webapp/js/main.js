@@ -1,13 +1,15 @@
 $(document).ready(function() {
+   /* Handle searching for member list*/
    $("#searchBox").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
+      let value = $(this).val().toLowerCase();
       $("#memLst li").filter(function() {
          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
    });
 
+   /*Handle searching for checkout record*/
    $("#searchRecord").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
+      let value = $(this).val().toLowerCase();
       if (value.length == 0) {
          pagination("#recordtb", ".pagination__record", 5);
       } else {
@@ -17,8 +19,9 @@ $(document).ready(function() {
       }
    });
 
+   /*Handle searching for book*/
    $("#searchBook").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
+      let value = $(this).val().toLowerCase();
       if (value.length == 0) {
          pagination("#booktb", ".pagination__book", 5);
       } else {
@@ -28,8 +31,9 @@ $(document).ready(function() {
       }
    });
 
+   /*Handle searching for expired record*/
    $("#searchExpired").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
+      let value = $(this).val().toLowerCase();
       if (value.length == 0) {
          pagination("#expiredtb", ".pagination__expired", 5);
       } else {
@@ -39,14 +43,16 @@ $(document).ready(function() {
       }
    });
 
+   /*Routing to adding book*/
    $("#addBook").on("click", function() {
-      var href = window.location.href;
+      let href = window.location.href;
       window.location.href = href.replace("/main", "/registerbook");
    });
 
+   /*Routing to checkout book*/
    $("#checkout").on("click", function() {
-      var href = window.location.href;
-      var link = href.split("/librarymember");
+      let href = window.location.href;
+      let link = href.split("/librarymember");
       window.location.href = href.replace("/main", "/CheckoutServlet");
    });
 
@@ -54,11 +60,13 @@ $(document).ready(function() {
    pagination("#recordtb", ".pagination__record", 5);
    pagination("#detailTable", ".pagination__detail", 5)
 });
+
+/*Handling for pagination*/
 function pagination(tableId, pagination, maxRow) {
    $(pagination).html("");
-   var trnum = 0;
-   var maxRows = parseInt(maxRow);
-   var totalRows = $(tableId+' tbody tr').length;
+   let trnum = 0;
+   let maxRows = parseInt(maxRow);
+   let totalRows = $(tableId+' tbody tr').length;
    $(tableId+' tr:gt(0)').each(function() {
       trnum++;
       if (trnum > maxRows) {
@@ -69,15 +77,15 @@ function pagination(tableId, pagination, maxRow) {
       }
    });
    if (totalRows > maxRows) {
-      var pagenum = Math.ceil(totalRows/maxRows);
+      let pagenum = Math.ceil(totalRows/maxRows);
       for (let i = 1; i <= pagenum;) {
          $(pagination).append('<li data-page="' + i + '">\<a>' + i++ + '</a>\</li>').show();
       }
    }
    $(pagination + ' li:first-child a').addClass('active');
    $(pagination + ' li').on("click", function(){
-      var pagenum = $(this).attr('data-page');
-      var trIndex = 0;
+      let pagenum = $(this).attr('data-page');
+      let trIndex = 0;
       $(pagination + ' li a').removeClass('active');
       $(this).find('a').addClass("active");
       $(tableId+' tr:gt(0)').each(function(){
