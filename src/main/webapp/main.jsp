@@ -30,7 +30,7 @@
                 </div>
                 <div class="card text-center">
                     <div class="card-header">
-                        <h5>LIBRARY MEMBER</h5>
+                        <h6>LIBRARY MEMBER</h6>
                     </div>
                     <div class="card-body" id="card-body">
                         <div class="member">

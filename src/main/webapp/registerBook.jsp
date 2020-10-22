@@ -64,9 +64,6 @@
                         <c:if test="${success}">
                             <p>Added successfully</p>
                         </c:if>
-                        <c:if test="${!success}">
-                        <p style="color: red">The isbn existed...Please check again.</p>
-                        </c:if>
                     </div>
                 </form>
             </div>
