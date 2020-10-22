@@ -39,6 +39,11 @@
                         </c:forEach>
                     </ul>
                 </div>
+                <div style="text-align: center; padding-top: 0.5em;">
+                    <form action="registerlibrarymember" method="get">
+                        <button type="submit" class="btn btn-outline-primary" id="addMember">Add Member</button>
+                    </form>
+                </div>
             </div>
             <div class="col-sm-10 right-panel">
                 <c:set var="path" value="${requestScope['javax.servlet.forward.servlet_path']}" />

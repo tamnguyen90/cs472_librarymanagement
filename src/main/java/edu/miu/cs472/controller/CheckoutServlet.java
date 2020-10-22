@@ -61,4 +61,11 @@ public class CheckoutServlet extends HttpServlet {
             checkoutEntry.setOwner(member);
             CheckoutRecordData.addNewCheckoutRecord(checkoutEntry);
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("isbn", req.getParameter("isbn"));
+        req.setAttribute("memberId", req.getParameter("memberId"));
+        req.getRequestDispatcher("checkout.jsp").forward(req, resp);
+    }
 }

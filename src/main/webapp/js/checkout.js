@@ -1,8 +1,11 @@
 $(document).ready(function() {
+    loadMember();
+    loadBook();
+
     //handle submit checkout a book
     $('#btnSubmit').click(function(event) {
-        var selMemberId = $('input[name=\"selMemberId\"]:checked').val();
-        var selIsbn = $('input[name=\"selIsbn\"]:checked').val();
+        var selMemberId = $('input[name="selMemberId"]:checked').val();
+        var selIsbn = $('input[name="selIsbn"]:checked').val();
         var $errorMessage = $('#errorMessage');
 
         if(selMemberId == undefined && selIsbn == undefined) {
@@ -50,24 +53,10 @@ $(document).ready(function() {
     });
 
     //getting Library Member data when user enter memberId
-    $('#memberId').keyup(function(event) {
-        var memberId = $('#memberId').val();
-
-        $.post('LibraryMemberServlet', {
-            memberId: memberId
-        })
-            .done(dispLibraryMember)
-    });
+    $('#memberId').keyup(loadMember);
 
     //Get available Book for checkout
-    $('#isbn').keyup(function(event) {
-        var isbn = $('#isbn').val();
-
-        $.post('CheckoutBookServlet', {
-            isbn: isbn
-        })
-            .done(dispBook)
-    });
+    $('#isbn').keyup(loadBook);
 
     //getting Library Member data when user enter memberId
     $('#returnMemberId').keyup(function(event) {
@@ -96,6 +85,28 @@ $(document).ready(function() {
         $('#successMessage').submit();
     });
 });
+
+function loadMember(event) {
+    var memberId = $('#memberId').val();
+    if (memberId) {
+        $.post('LibraryMemberServlet', {
+            memberId: memberId
+        })
+            .done(dispLibraryMember);
+    }
+
+}
+
+function loadBook(event) {
+    var isbn = $('#isbn').val();
+
+    if (isbn) {
+        $.post('CheckoutBookServlet', {
+            isbn: isbn
+        })
+            .done(dispBook);
+    }
+}
 
 function dispLibraryMember(resJson) {
     var $libaryMember = $('#libraryMember');

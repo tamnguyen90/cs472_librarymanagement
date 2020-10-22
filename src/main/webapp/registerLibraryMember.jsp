@@ -9,114 +9,87 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Register Library Member</title>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <%--    <script>--%>
-    <%--        $(document).ready(function () {--%>
-    <%--            $('#addLibraryMemberBtn').click(addLibraryMember);--%>
-    <%--        });--%>
-
-    <%--        function addLibraryMember(event) {--%>
-    <%--            event.preventDefault();--%>
-    <%--            $.post('registerlibrarymember',{--%>
-    <%--                "firstName": $("input[name='firstName']").val(),--%>
-    <%--                "lastName": $("input[name='lastName']").val(),--%>
-    <%--                "street": $("input[name='street']").val(),--%>
-    <%--                "city": $("input[name='city']").val(),--%>
-    <%--                "state": $("#state option:selected").text(),--%>
-    <%--                "zip": $("input[name='zip']").val(),--%>
-    <%--                "phone": $("input[name='phone']").val(),--%>
-    <%--            }).done(returnData);--%>
-    <%--        }--%>
-
-    <%--        function returnData(responseJson) {--%>
-    <%--            var list = $('#list');--%>
-    <%--            list.find('tr').remove();--%>
-    <%--            $.each(responseJson, function (index, value) {--%>
-    <%--                console.log(value);--%>
-    <%--                var strAdd = value.address.street + ',' + value.address.city + ',' + value.address.state + ',' + value.address.zip;--%>
-    <%--                console.log(strAdd);--%>
-
-    <%--                $("#returndata").append("<tr><td>" + value.firstName + "</td><td>" + value.lastName + "</td><td>" + strAdd + "</td><td>" + value.phone + "</td></tr>");--%>
-    <%--            });--%>
-    <%--        }--%>
-
-
-    <%--    </script>--%>
-    <link rel="stylesheet" type="text/css" href="css/registerLibraryMember.css">
+    <title>ADD NEW MEMBER</title>
+    <meta charset="UTF-8"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script src="js/addMember.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<%--<h2>List of Library Member in system</h2>--%>
-<%--<table class="table table-striped" id="returndata">--%>
-<%--    <thead>--%>
-<%--    <tr>--%>
-<%--        <th>First Name</th>--%>
-<%--        <th>Last Name</th>--%>
-<%--        <th>Address</th>--%>
-<%--        <th>Phone</th>--%>
-<%--    </tr>--%>
-<%--    </thead>--%>
-<%--    <tbody id="list">--%>
-<%--    <c:forEach var="libraryMember" items="${librarymemberlist}">--%>
-<%--        <tr>--%>
-<%--            <td>${libraryMember.firstName}</td>--%>
-<%--            <td>${libraryMember.lastName}</td>--%>
-<%--            <td>${libraryMember.address}</td>--%>
-<%--            <td>${libraryMember.phone}</td>--%>
-<%--        </tr>--%>
-<%--    </c:forEach>--%>
-<%--    </tbody>--%>
-<%--</table>--%>
-
-<header>
-    <div>Library Management System</div>
-</header>
-
-<div id="main_content">
-    <h5>Add new member: </h5>
-    <form action="registerlibrarymember" method="post">
-        <table>
-            <tr><td><label>First Name</label></td>
-                <td><input type="text" name="firstName"/></td></tr>
-            <tr><td><label>Last Name</label></td>
-            <td><input type="text" name="lastName"/><td></tr>
-            <tr><td><label class="address">Address:</label></td><td></td></tr>
-
-            <tr><td><label>Street</label></td>
-            <td><input type="text" name="street"/></td></tr>
-
-            <tr><td><label>City</label></td>
-            <td><input type="text" name="city"/></td></tr>
-
-            <tr><td><label>State</label></td>
-                <td>
-                <select name="state" id="state">
-                    <option value="Iowa" selected>Iowa</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Maryland">Maryland</option>
-                </select></td></tr>
-
-            <tr><td><label>Zip</label></td>
-                <td> <input type="text" name="zip"/></td></tr>
-
-            <tr><td><label class="phone">Phone</label></td>
-                <td> <input type="text" name="phone"/></td></tr>
-        </table>
-        <div id="button">
-            <button id="cancelBtn">Cancel</button>
-        <button id="addLibraryMemberBtn">Submit</button>
+    <jsp:include page="header.jsp" />
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4>Add New Library Member</h4>
+            </div>
+            <div class="card-body">
+                <form action="registerlibrarymember" method="post">
+                    <div class="form-group row">
+                        <label for="firstname" class="col-sm-4 col-form-label">First Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="firstname" name="firstname"
+                                   placeholder="First Name" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lastname" class="col-sm-4 col-form-label">Last Name</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="title" name="lastname" placeholder="Last Name" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="street" class="col-sm-4 col-form-label">Street</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="street" name="street" placeholder="Street">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="city" class="col-sm-4 col-form-label">City</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="state" class="col-sm-4 col-form-label">State</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="state" id="state">
+                                <option value="Iowa" selected>Iowa</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Maryland">Maryland</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="zip" class="col-sm-4 col-form-label">Zip</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="zip" name="zip" placeholder="Zip code">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-4 col-form-label">Phone Number</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone number">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" class="btn btn-outline-primary" id="addBookBtn">Add Member</button>
+                        <button type="button" class="btn btn-outline-secondary" id="cancelBtn">Back To Main</button>
+                    </div>
+                    <div>
+                        <c:if test="${success}">
+                            <p>Added successfully</p>
+                        </c:if>
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
-
-</div>
-<footer>
-    <h6>
-        © 2020 Maharishi International University. All Rights Reserved.
-    </h6>
-</footer>
+    </div>
+    <jsp:include page="footer.jsp" />
 </body>
 </html>

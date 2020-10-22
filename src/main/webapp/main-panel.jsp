@@ -11,21 +11,26 @@
             <th>Checkout Date</th>
             <th>Due Date</th>
             <th>Member Id</th>
-            <th>Returned</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody id="recordTable">
-        <c:set var="listOfRecords" value="${checkoutRecordMap.value}" />
         <c:choose>
-            <c:when test="${!empty listOfRecords}">
-                <c:forEach var="records" items="${listOfRecords}">
+            <c:when test="${!empty checkoutRecords}">
+                <c:forEach var="records" items="${checkoutRecords}">
                     <c:forEach var="record" items="${records}">
                         <tr>
                             <td>${record.book.title}</td>
                             <td>${record.checkoutDate}</td>
                             <td>${record.dueDate}</td>
                             <td>${record.owner.memberId}</td>
-                            <td>${record.book.checkout ? 'No' : 'Yes'}</td>
+                            <td>
+                                <form action="ReturnServlet" method="post">
+                                    <input type="hidden" name="returnMemberId" value="${record.owner.memberId}" />
+                                    <input type="hidden" name="returnIsbn" value="${record.book.isbn}" />
+                                    <button type="submit" class="btn btn-outline-primary" >Return</button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                 </c:forEach>
@@ -39,6 +44,12 @@
 
         </tbody>
     </table>
+    <div style="text-align: center;">
+        <form action="CheckoutServlet" method="get">
+            <button type="submit" class="btn btn-outline-primary" id="checkout">Checkout</button>
+        </form>
+
+    </div>
 </div>
 <div id="bookDetailTable">
     <h3>BOOK COLLECTION</h3>
@@ -52,7 +63,7 @@
             <th>Title</th>
             <th>Author</th>
             <th>Days</th>
-            <th>Checkout?</th>
+            <th>Checkout</th>
         </tr>
         </thead>
         <tbody id="bookTable">
@@ -64,7 +75,20 @@
                         <td>${book.title}</td>
                         <td>${book.authorStr}</td>
                         <td>${book.maxCheckout}</td>
-                        <td>${book.checkout ? 'Yes' : 'Not yet'}</td>
+                        <c:choose>
+                            <c:when test="${book.checkout}">
+                                <td>Yes</td>
+                            </c:when>
+                            <c:otherwise>
+                                <td>
+                                    <form action="CheckoutServlet" method="get">
+                                        <input type="hidden" name="isbn" value="${book.isbn}" />
+                                        <button type="submit" class="btn btn-outline-primary" id="checkoutIsbn">Checkout</button>
+                                    </form>
+                                </td>
+                            </c:otherwise>
+                        </c:choose>
+
                     </tr>
                 </c:forEach>
             </c:when>

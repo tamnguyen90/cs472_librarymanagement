@@ -8,18 +8,24 @@
             <th>Title</th>
             <th>Checkout Date</th>
             <th>Due Date</th>
-            <th>Returned</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
             <c:choose>
-                <c:when test="${!empty recordDetail}">
+                <c:when test="${!empty recordsDetail}">
                     <c:forEach var="record" items="${recordsDetail}">
                         <tr>
                             <td>${record.book.title}</td>
                             <td>${record.checkoutDate}</td>
                             <td>${record.dueDate}</td>
-                            <td>${record.book.checkout ? 'No' : 'Yes'}</td>
+                            <td>
+                                <form action="ReturnServlet" method="post">
+                                    <input type="hidden" name="returnMemberId" value="${record.owner.memberId}" />
+                                    <input type="hidden" name="returnIsbn" value="${record.book.isbn}" />
+                                    <button type="submit" class="btn btn-outline-primary" >Return</button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                 </c:when>
@@ -32,7 +38,8 @@
         </tbody>
     </table>
     <div style="text-align: center;">
-        <button type="button" class="btn btn-outline-primary" id="checkout">Checkout</button>
-        <button type="button" class="btn btn-outline-secondary" id="return" ${!empty recordDetail ? "" : "disabled"}>Return</button>
+        <form action="main" method="get">
+            <button type="submit" class="btn btn-outline-secondary" id="back">Back To Main</button>
+        </form>
     </div>
 </div>

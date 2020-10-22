@@ -30,7 +30,7 @@ public class MainSystemServlet extends HttpServlet {
         String servletPath = request.getServletPath();
         Collection<Book> bookCollection = BookData.getCurrentBookList();
         request.setAttribute("libBooks", bookCollection);
-        request.setAttribute("checkoutRecordMap", checkoutRecordMap);
+        request.setAttribute("checkoutRecords", checkoutRecordMap.values());
         Collection<LibraryMember> libraryMembers = LibraryMemberData.getCurrentMembers();
         request.setAttribute("libMembers", libraryMembers);
 

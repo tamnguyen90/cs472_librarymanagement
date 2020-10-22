@@ -24,4 +24,10 @@ $(document).ready(function() {
       var href = window.location.href;
       window.location.href = href.replace("/main", "/registerbook");
    });
+
+   $("#checkout").on("click", function() {
+      var href = window.location.href;
+      var link = href.split("/librarymember");
+      window.location.href = href.replace("/main", "/CheckoutServlet");
+   });
 });
