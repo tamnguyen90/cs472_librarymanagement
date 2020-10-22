@@ -84,8 +84,7 @@
             <tbody id="expireTable">
             <c:choose>
                 <c:when test="${!empty expiredCheckoutRecords}">
-                    <c:forEach var="expireds" items="${checkoutRecords}">
-                        <c:forEach var="expired" items="${expireds}">
+                        <c:forEach var="expired" items="${expiredCheckoutRecords}">
                             <tr>
                                 <td>${expired.book.title}</td>
                                 <td>${expired.checkoutDate}</td>
@@ -100,7 +99,6 @@
                                 </td>
                             </tr>
                         </c:forEach>
-                    </c:forEach>
                 </c:when>
                 <c:otherwise>
                     <tr style="text-align: center">

@@ -33,6 +33,7 @@ public class MainSystemServlet extends HttpServlet {
         request.setAttribute("checkoutRecords", checkoutRecordMap.values());
         Collection<LibraryMember> libraryMembers = LibraryMemberData.getCurrentMembers();
         request.setAttribute("libMembers", libraryMembers);
+        request.setAttribute("expiredCheckoutRecords", CheckoutRecordData.getExpiredCheckoutEntries());
 
 
         //handler when user clicking on each member
