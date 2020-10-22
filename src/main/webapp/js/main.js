@@ -15,7 +15,6 @@ $(document).ready(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
          });
       }
-
    });
 
    $("#searchBook").on("keyup", function() {
@@ -24,6 +23,17 @@ $(document).ready(function() {
          pagination("#booktb", ".pagination__book", 5);
       } else {
          $("#bookTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+         });
+      }
+   });
+
+   $("#searchExpired").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      if (value.length == 0) {
+         pagination("#expiredtb", ".pagination__expired", 5);
+      } else {
+         $("#expireTable tr").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
          });
       }
