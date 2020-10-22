@@ -34,6 +34,7 @@ public class MainSystemServlet extends HttpServlet {
         Collection<LibraryMember> libraryMembers = LibraryMemberData.getCurrentMembers();
         request.setAttribute("libMembers", libraryMembers);
 
+
         //handler when user clicking on each member
         if ("/libraryMember".equals(servletPath)) {
             String memberId = request.getParameter("memberId");

@@ -1,8 +1,5 @@
-body {
 
-}
-
-footer{
+footer {
     color: white;
     background-color:#005A41;
     height: 50px;
@@ -10,7 +7,17 @@ footer{
     text-align: center;
     padding-top: 10px;
 }
+.card {
+    margin-top: 1em;
+}
 
+.card-header {
+    background-color: #b2bec3;
+}
+
+.searchBox {
+    padding-left: 0;
+}
 .header-img {
     max-width: 100%;
     height: 10em;
@@ -33,7 +40,12 @@ footer{
 .right-panel {
     text-align: center;
 }
-
+.left-panel card {
+    background-color: #f1f1f1;
+}
+#card-body {
+    padding: 0;
+}
 .container-fluid {
     padding-top: 0.5em;
 }
@@ -42,7 +54,7 @@ footer{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 100%;
     background-color: #f1f1f1;
 }
 
@@ -61,4 +73,33 @@ footer{
 
 .searchBox {
     padding-bottom: 0.5em;
+}
+
+/*Pagination styles*/
+ul[class^="pagination__"] {
+    margin: 0;
+    padding: 0;
+}
+ul[class^="pagination__"] li {
+    display: inline;
+}
+
+ul[class^="pagination__"] li a {
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s;
+    border: 1px solid #ddd;
+}
+
+ul[class^="pagination__"] li a.active {
+    background: #40d47e;
+    color: #fff;
+    border: 1px solid #40d47e;
+
+}
+
+ul[class^="pagination__"] li a:hover:not(.active) {
+    background-color: #ddd;
 }

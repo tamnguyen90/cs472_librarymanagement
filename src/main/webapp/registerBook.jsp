@@ -50,6 +50,12 @@
                             <small id="authorHelp" class="form-text text-muted">Each author separated by the comma(',').</small>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="checkoutDays" class="col-sm-4 col-form-label">Max Checkout Days</label>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" id="checkoutDays" name="checkoutDays" placeholder="Max Checkout days" required />
+                        </div>
+                    </div>
                     <div class="form-group" style="text-align: center;">
                         <button type="submit" class="btn btn-outline-primary" id="addBookBtn">Add Book</button>
                         <button type="button" class="btn btn-outline-secondary" id="cancelBtn">Back To Main</button>
@@ -57,6 +63,9 @@
                     <div>
                         <c:if test="${success}">
                             <p>Added successfully</p>
+                        </c:if>
+                        <c:if test="${!success}">
+                        <p style="color: red">The isbn existed...Please check again.</p>
                         </c:if>
                     </div>
                 </form>

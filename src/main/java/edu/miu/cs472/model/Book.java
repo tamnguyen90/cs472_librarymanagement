@@ -78,6 +78,7 @@ public class Book implements Serializable{
 			if (temp.length > 1) {
 				for(int i = 1; i < temp.length; i ++) {
 					lastName += temp[i];
+					lastName += " ";
 				}
 			}
 			authors.add(new Author(firstName, lastName));

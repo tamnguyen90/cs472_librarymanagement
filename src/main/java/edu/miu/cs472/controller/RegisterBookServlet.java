@@ -23,15 +23,15 @@ public class RegisterBookServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        Collection<Book> booklist = BookData.getCurrentBookList();
         String isbn = req.getParameter("isbn");;
         String title = req.getParameter("title");;
         String authors = req.getParameter("authors");;
+        String maxCheckoutDays = req.getParameter("checkoutDays");
 
         Book newBook = new Book(isbn, title);
         newBook.addAuthor(authors);
-        boolean success = BookData.addNewBook(new Book(isbn,title));
+        newBook.setMaxCheckout(Integer.parseInt(maxCheckoutDays));
+        boolean success = BookData.addNewBook(newBook);
         req.setAttribute("success", success);
 
         req.getRequestDispatcher("registerBook.jsp").forward(req, resp);
@@ -39,9 +39,6 @@ public class RegisterBookServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getAttribute("booklist") == null) {
-            req.setAttribute("booklist", BookData.getCurrentBookList());
-        }
         req.getRequestDispatcher("registerBook.jsp").forward(req, resp);
     }
 }

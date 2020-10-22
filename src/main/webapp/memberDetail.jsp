@@ -1,17 +1,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id="checkoutTable">
-    <h3>CHECKOUT RECORDS</h3>
-    <h4>Library member: ${libMember.fullName}</h4>
-    <table class="table table-striped">
-        <thead class="thead-dark">
-        <tr>
-            <th>Title</th>
-            <th>Checkout Date</th>
-            <th>Due Date</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
+<!-- Checkout records of specific member -->
+<div class="card text-center">
+    <div class="card-header">
+        <h3>${libMember.fullName}</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped" id="detailTable">
+            <thead class="thead-light">
+            <tr>
+                <th>Title</th>
+                <th>Checkout Date</th>
+                <th>Due Date</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
             <c:choose>
                 <c:when test="${!empty recordsDetail}">
                     <c:forEach var="record" items="${recordsDetail}">
@@ -35,11 +38,17 @@
                     </tr>
                 </c:otherwise>
             </c:choose>
-        </tbody>
-    </table>
-    <div style="text-align: center;">
-        <form action="main" method="get">
-            <button type="submit" class="btn btn-outline-secondary" id="back">Back To Main</button>
-        </form>
+            </tbody>
+        </table>
+        <div class="pagination-container">
+            <nav>
+                <ul class="pagination__detail" ></ul>
+            </nav>
+        </div>
+        <div style="text-align: center;">
+            <form action="main" method="get">
+                <button type="submit" class="btn btn-outline-secondary" id="back">Back To Main</button>
+            </form>
+        </div>
     </div>
 </div>

@@ -28,11 +28,6 @@ public class CheckoutServlet extends HttpServlet {
 
         int memberId = Integer.parseInt(sMemberId.trim());
 
-//        Load data from session
-//        HttpSession sess = req.getSession();
-//        List<LibraryMember> members = (List<LibraryMember>)sess.getAttribute("members");
-//        List<Book> books = (List<Book>)sess.getAttribute("books");
-
         Optional<LibraryMember> member =  LibraryMemberData.getCurrentMembers().stream()
                                     .filter(m -> (m.getMemberId() == memberId ))
                                     .findFirst();

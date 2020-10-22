@@ -39,7 +39,7 @@
                 <div id="errorMessage" class="ui-state-error row"></div>
 
                 <table class="table table-striped" name="checkoutBook">
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
                     <tr>
                         <th></th>
                         <th>Member Id</th>
@@ -53,7 +53,7 @@
                 </table>
                 <div class="row" id="book"></div>
                 <table class="table table-striped">
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
                     <tr>
                         <th></th>
                         <th>ISBN</th>

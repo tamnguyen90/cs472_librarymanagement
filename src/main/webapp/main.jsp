@@ -18,7 +18,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
@@ -27,22 +26,29 @@
         <div class="row">
             <div class="col-sm-2 left-panel">
                 <div class="searchBox">
-                    <input type="text" class="bd-search d-flex align-items-center" id="searchBox" placeholder="Search..."/>
+                    <input type="text" class="form-control" id="searchBox" placeholder="Search..."/>
                 </div>
-                <div class="member">
-                    <ul id="memLst">
-                        <h5>Library members</h5>
-                        <c:forEach var="mem" items="${libMembers}">
-                            <li>
-                                <a href="libraryMember?memberId=${mem.memberId}">${mem.fullName}</a>
-                            </li>
-                        </c:forEach>
-                    </ul>
-                </div>
-                <div style="text-align: center; padding-top: 0.5em;">
-                    <form action="registerlibrarymember" method="get">
-                        <button type="submit" class="btn btn-outline-primary" id="addMember">Add Member</button>
-                    </form>
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5>LIBRARY MEMBER</h5>
+                    </div>
+                    <div class="card-body" id="card-body">
+                        <div class="member">
+                            <ul id="memLst">
+                                <c:forEach var="mem" items="${libMembers}">
+                                    <li>
+                                        <a href="libraryMember?memberId=${mem.memberId}">${mem.fullName}</a>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+
+                        <form action="registerlibrarymember" method="get">
+                            <div style="text-align: center; padding-top: 0.5em;">
+                                <button type="submit" class="btn btn-outline-primary" id="addMember">Add Member</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-10 right-panel">
@@ -61,5 +67,7 @@
         </div>
     </div>
     <jsp:include page="footer.jsp" />
+
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
